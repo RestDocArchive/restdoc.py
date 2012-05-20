@@ -23,13 +23,10 @@ If you aren't already, consider using virtualenv to isolate projects.
 Interactive Shell
 -----------------
 
-To fire up the interactive shell::
+To fire up the interactive shell use the ``rdc`` command. All of the commands
+are documented in the shell itself, but here is a quick example::
 
-  python -m restdoc.interactive localhost:5000
-
-All of the commands should be somewhat documented, but here is a quick example::
-
-  => python -m restdoc.interactive localhost:5000
+  => rdc
   Welcome to the RestDoc shell!
   Use the 'server' command to specify a server, or 'help' to see all commands.
   (localhost:5000) help

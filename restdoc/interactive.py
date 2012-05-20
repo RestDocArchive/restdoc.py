@@ -66,7 +66,7 @@ class Shell(Cmd, object):
             print e.message
 
 
-if __name__ == '__main__':
+def main():
     import sys
     import argparse
     from textwrap import dedent
@@ -77,3 +77,6 @@ if __name__ == '__main__':
     Welcome to the RestDoc shell!
     Use the 'server' command to specify a server, or 'help' to see all commands."""
     ))
+
+
+if __name__ == '__main__': main()

@@ -8,5 +8,6 @@ setup(name='restdoc',
       packages=['restdoc'],
       requires=['prettytable (==0.6)',
                 'urllib3 (==1.3)',
-               ]
+               ],
+      scripts=['scripts/rdc'],
       )
