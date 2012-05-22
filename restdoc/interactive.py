@@ -48,12 +48,20 @@ class Shell(Cmd, object):
         if method is None:
             method = args.X
         tpl_vars = dict(args.template or [])
-        res = self.client.request(method, args.resource, tpl_vars)
+        print("{} {}".format(method,
+                             self.client.resolve_href(args.resource, tpl_vars)))
+        if args.body:
+            print(args.body)
+        print()
+        res = self.client.request(method,
+                                  args.resource,
+                                  template_vars=tpl_vars,
+                                  body=args.body)
         print("{0.status} {0.reason}".format(res))
         for header in res.headers.iteritems():
             print("{0}: {1}".format(*header))
         print
-        print res.read()
+        print res.data
 
     def help_request(self):
         return self.request_parser.print_help()
