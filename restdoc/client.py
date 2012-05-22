@@ -1,5 +1,8 @@
 import re
 from textwrap import dedent
+from logging import getLogger
+
+log = getLogger(__name__)
 
 import urllib3
 
@@ -36,7 +39,7 @@ class Client(object):
 
     def request(self, method, resource, template_vars=None, **kw):
         href = self.resolve_href(resource, template_vars)
-        res = self.conn.request(method, href, **kw)
+        res = self.conn.urlopen(method, href, **kw)
         return res
 
     def resolve_href(self, resource_id, template_vars):
