@@ -11,21 +11,21 @@ def expand_template(source, context):
             j = i
             while source[j] != '}':
                 j += 1
-            ret += expand_expression(source[i + 1:j], data)
+            ret += expand_expression(source[i + 1:j], context)
             i = j
         else:
             ret += c
         i += 1
     return ret
 
-def expand_expression(expr, data):
+def expand_expression(expr, context):
     if expr[0] in op_table:
         expr_type = op_table[expr[0]]
         expr = expr[1:]
     else:
         expr_type = SimpleExpr
     
-    return expr_type.expand(expr.split(','), data)
+    return expr_type.expand(expr.split(','), context)
     
 
 class SimpleExpr(object):
