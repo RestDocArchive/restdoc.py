@@ -28,7 +28,7 @@ class Client(object):
     def reload_index(self, **kw):
         self.conn = urllib3.connection_from_url(self.root, **kw)
         c = self.conn._get_conn()
-        c.request('OPTIONS', '/*', headers={'Accept': 'application/json'})
+        c.request('OPTIONS', '*', headers={'Accept': 'application/json'})
         res = c.getresponse()
         body = res.read()
         self._index = json.loads(body)
